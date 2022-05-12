@@ -3,12 +3,16 @@ plugins {
     id 'application'
 }
 
+run {
+  standardInput = System.in
+}
+
 application {
     mainClass = 'hexlet.code.App'
 }
 
 compileJava {
-    options.release = 15
+    options.release = 17
 }
 
 group 'hexlet.code'
