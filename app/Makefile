@@ -7,3 +7,6 @@ build: #build project
 
 clean: #clean last build
 		./gradlew clean
+
+chk: #apply checkstyleMain
+		./gradlew checkstyleMain
