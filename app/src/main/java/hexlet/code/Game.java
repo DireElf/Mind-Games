@@ -1,6 +1,7 @@
 package hexlet.code;
 
 
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Game {
@@ -47,4 +48,9 @@ public abstract class Game {
     public abstract void getRightAnswer();
 
     public abstract boolean isUserAnswerCorrect();
+
+    public int getRandomNumber(int bound) {
+        Random random = new Random();
+        return random.nextInt(bound);
+    }
 }

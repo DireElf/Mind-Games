@@ -11,7 +11,7 @@ public class Even extends Game {
 
     @Override
     public void setQuestion() {
-        question = String.valueOf((int)(Math.random() * 100));
+        question = String.valueOf(getRandomNumber(100));
     }
 
     @Override
