@@ -12,18 +12,14 @@ public abstract class Game {
 
     public void letsPlay(User user) {
         printHowTo();
-        setQuestion();
-        getRightAnswer();
-        printQuestion();
-        getUserAnswer();
-        while (gameCount < 2) {
-            if (isUserAnswerCorrect()) {
-                System.out.println("Correct!");
-                gameCount++;
+        while (gameCount < 3) {
                 setQuestion();
                 getRightAnswer();
                 printQuestion();
                 getUserAnswer();
+            if (isUserAnswerCorrect()) {
+                System.out.println("Correct!");
+                gameCount++;
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was "
                         + rightAnswer + ".\nLet's try again, " + user.getName() + "!");
