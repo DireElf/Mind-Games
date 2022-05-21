@@ -4,7 +4,8 @@
 [![Run Build With Gradle](https://github.com/DireElf/java-project-lvl1/actions/workflows/run-build.yml/badge.svg)](https://github.com/DireElf/java-project-lvl1/actions/workflows/run-build.yml)
 
 Even game:
-[![asciicast](https://asciinema.org/a/H8ryOAYvCiV8CkQ8j6XHVIRnz.svg)](https://asciinema.org/a/H8ryOAYvCiV8CkQ8j6XHVIRnz)
-
+[![asciicast](https://asciinema.org/a/9M9g7Y6J1tEs2JN1c7p1TuEOM.svg)](https://asciinema.org/a/9M9g7Y6J1tEs2JN1c7p1TuEOM)
 Calc game:
-[![asciicast](https://asciinema.org/a/JY6kyd7McomoCtTmcBQgfIE6A.svg)](https://asciinema.org/a/JY6kyd7McomoCtTmcBQgfIE6A)
+[![asciicast](https://asciinema.org/a/WRTraKnWAd4sh8r2XEQhiBwVH.svg)](https://asciinema.org/a/WRTraKnWAd4sh8r2XEQhiBwVH)
+GCD game:
+[![asciicast](https://asciinema.org/a/DgxYyJWufRDReDQFgmN9Wy3kZ.svg)](https://asciinema.org/a/DgxYyJWufRDReDQFgmN9Wy3kZ)
