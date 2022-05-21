@@ -16,14 +16,14 @@ public class Calc extends Game {
     public void setQuestion() {
         firstNumber = getRandomNumber(10);
         secondNumber = getRandomNumber(10);
-        char[] operators = {'+','-','*'};
+        char[] operators = {'+', '-', '*'};
         operator = operators[getRandomNumber(2)];
         question = firstNumber + " " + operator + " " + secondNumber;
     }
 
     @Override
     public void getRightAnswer() {
-        switch(operator) {
+        switch (operator) {
             case '*':
                 rightAnswer = String.valueOf(firstNumber * secondNumber);
                 break;
