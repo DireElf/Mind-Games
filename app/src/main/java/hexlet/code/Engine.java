@@ -11,6 +11,7 @@ class Engine {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n0 - Exit");
         userChoice = new Scanner(System.in).nextInt();
+        System.out.println("Your choice: " + userChoice);
     }
 
     public void startChosenGame() {
