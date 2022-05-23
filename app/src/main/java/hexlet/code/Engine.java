@@ -9,7 +9,7 @@ class Engine {
 
     public void chooseGame() {
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n0 - Exit");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n0 - Exit");
         userChoice = new Scanner(System.in).nextInt();
     }
 
@@ -23,6 +23,8 @@ class Engine {
             new Calc().letsPlay(user);
         } else if (userChoice == 4) {
             new GCD().letsPlay(user);
+        } else if (userChoice == 5) {
+            new Progression().letsPlay(user);
         }
     }
 
