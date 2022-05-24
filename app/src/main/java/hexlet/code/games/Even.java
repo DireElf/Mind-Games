@@ -1,8 +1,9 @@
 package hexlet.code.games;
 
-import hexlet.code.*;
+import hexlet.code.Game;
 
-public class Even extends Game {
+public final class Even extends Game {
+    private final int rangeLimit = 100;
 
     @Override
     public void printHowTo() {
@@ -10,21 +11,21 @@ public class Even extends Game {
     }
 
     @Override
-    public void setQuestion() {
-        question = String.valueOf(getRandomNumber(100));
+    public void defineQuestion() {
+        setQuestion(String.valueOf(getRandomNumber(rangeLimit)));
     }
 
     @Override
-    public void getRightAnswer() {
-        if (Integer.parseInt(question) % 2 == 0) {
-            rightAnswer = "yes";
+    public void defineRightAnswer() {
+        if (Integer.parseInt(getQuestion()) % 2 == 0) {
+            setRightAnswer("yes");
         } else {
-            rightAnswer = "no";
+            setRightAnswer("no");
         }
     }
 
     @Override
     public boolean isUserAnswerCorrect() {
-        return userAnswer.equals(rightAnswer);
+        return getUserAnswer().equals(getRightAnswer());
     }
 }

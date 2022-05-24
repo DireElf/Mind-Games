@@ -1,10 +1,22 @@
 package hexlet.code.games;
 
-import hexlet.code.*;
+import hexlet.code.Game;
 
-public class Progression extends Game {
-    int[] progressionRow;
-    int shadowAnswer;
+public final class Progression extends Game {
+    private int[] progressionRow;
+    private int shadowAnswer;
+    private final int progressionDimension = 100;
+    private final int progressionSize = 10;
+    private final int progressionStepsRange = 10;
+
+
+    public int[] getProgressionRow() {
+        return progressionRow;
+    }
+
+    public int getShadowAnswer() {
+        return shadowAnswer;
+    }
 
     @Override
     public void printHowTo() {
@@ -13,14 +25,14 @@ public class Progression extends Game {
     }
 
     @Override
-    public void setQuestion() {
-        progressionRow = new int[10];
-        int step = getRandomNumber(10);
-        progressionRow[0] = getRandomNumber(100);
+    public void defineQuestion() {
+        progressionRow = new int[progressionSize];
+        int step = getRandomNumber(progressionStepsRange);
+        progressionRow[0] = getRandomNumber(progressionDimension);
         for (int i = 1; i < progressionRow.length; i++) {
             progressionRow[i] = progressionRow[i - 1] + step;
         }
-        int answerNumber = getRandomNumber(10);
+        int answerNumber = getRandomNumber(progressionSize);
         shadowAnswer = progressionRow[answerNumber];
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < answerNumber; i++) {
@@ -32,17 +44,17 @@ public class Progression extends Game {
             sb.append(progressionRow[j]);
             sb.append(" ");
         }
-        question = sb.toString();
+        setQuestion(sb.toString());
     }
 
     @Override
-    public void getRightAnswer() {
-        rightAnswer = String.valueOf(shadowAnswer);
+    public void defineRightAnswer() {
+        setRightAnswer(String.valueOf(getShadowAnswer()));
     }
 
     @Override
     public boolean isUserAnswerCorrect() {
-        return userAnswer.equals(rightAnswer);
+        return getUserAnswer().equals(getRightAnswer());
     }
 }
 

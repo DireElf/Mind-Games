@@ -1,9 +1,15 @@
 package hexlet.code.games;
 
-import hexlet.code.*;
+import hexlet.code.Game;
 
-public class Prime extends Game {
-    int numberToCheck;
+public final class Prime extends Game {
+    private int numberToCheck;
+    private final int rangeStart = 2;
+    private final int rangeLimit = 100;
+
+    public int getNumberToCheck() {
+        return numberToCheck;
+    }
 
     @Override
     public void printHowTo() {
@@ -12,18 +18,18 @@ public class Prime extends Game {
     }
 
     @Override
-    public void setQuestion() {
-        numberToCheck = getRandomNumber(100) + 2; // 2 is the first possible prime number
-        question = String.valueOf(numberToCheck);
+    public void defineQuestion() {
+        numberToCheck = getRandomNumber(rangeLimit) + rangeStart;
+        setQuestion(String.valueOf(getNumberToCheck()));
     }
 
     @Override
-    public void getRightAnswer() {
-        rightAnswer = "yes";
-        if (numberToCheck != 2) {
-            for (int i = 3; i < numberToCheck; i++) {
-                if (numberToCheck % i == 0) {
-                    rightAnswer = "no";
+    public void defineRightAnswer() {
+        setRightAnswer("yes");
+        if (getNumberToCheck() != rangeStart) {
+            for (int i = rangeStart + 1; i < getNumberToCheck(); i++) {
+                if (getNumberToCheck() % i == 0) {
+                    setRightAnswer("no");
                     break;
                 }
             }
@@ -32,7 +38,7 @@ public class Prime extends Game {
 
     @Override
     public boolean isUserAnswerCorrect() {
-        return userAnswer.equals(rightAnswer);
+        return getUserAnswer().equals(getRightAnswer());
     }
 }
 

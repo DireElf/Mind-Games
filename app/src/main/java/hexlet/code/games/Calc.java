@@ -1,11 +1,25 @@
 package hexlet.code.games;
 
-import hexlet.code.*;
 
-public class Calc extends Game {
-    int firstNumber;
-    int secondNumber;
-    char operator;
+import hexlet.code.Game;
+
+public final class Calc extends Game {
+    private int firstNumber;
+    private int secondNumber;
+    private char operator;
+    private final int rangeLimit = 10;
+
+    public int getFirstNumber() {
+        return firstNumber;
+    }
+
+    public int getSecondNumber() {
+        return secondNumber;
+    }
+
+    public char getOperator() {
+        return operator;
+    }
 
     @Override
     public void printHowTo() {
@@ -13,31 +27,34 @@ public class Calc extends Game {
     }
 
     @Override
-    public void setQuestion() {
-        firstNumber = getRandomNumber(10);
-        secondNumber = getRandomNumber(10);
+    public void defineQuestion() {
+        firstNumber = getRandomNumber(rangeLimit);
+        secondNumber = getRandomNumber(rangeLimit);
         char[] operators = {'+', '-', '*'};
-        operator = operators[getRandomNumber(2)];
-        question = firstNumber + " " + operator + " " + secondNumber;
+        int choiceBound = 2;
+        operator = operators[getRandomNumber(choiceBound)];
+        setQuestion(getFirstNumber() + " " + getOperator() + " " + getSecondNumber());
     }
 
     @Override
-    public void getRightAnswer() {
-        switch (operator) {
+    public void defineRightAnswer() {
+        switch (getOperator()) {
             case '*':
-                rightAnswer = String.valueOf(firstNumber * secondNumber);
+                setRightAnswer(String.valueOf(getFirstNumber() * getSecondNumber()));
                 break;
             case '-':
-                rightAnswer = String.valueOf(firstNumber - secondNumber);
+                setRightAnswer(String.valueOf(getFirstNumber() - getSecondNumber()));
                 break;
             case '+':
-                rightAnswer = String.valueOf(firstNumber + secondNumber);
+                setRightAnswer(String.valueOf(getFirstNumber() + getSecondNumber()));
+                break;
+            default:
                 break;
         }
     }
 
     @Override
     public boolean isUserAnswerCorrect() {
-        return userAnswer.equals(rightAnswer);
+        return getUserAnswer().equals(getRightAnswer());
     }
 }
