@@ -4,8 +4,8 @@ import hexlet.code.Game;
 
 public final class Prime extends Game {
     private int numberToCheck;
-    private final int rangeStart = 2;
-    private final int rangeLimit = 100;
+    private static final int RANGE_START = 2;
+    private static final int RANGE_LIMIT = 100;
 
     public int getNumberToCheck() {
         return numberToCheck;
@@ -19,15 +19,15 @@ public final class Prime extends Game {
 
     @Override
     public void defineQuestion() {
-        numberToCheck = getRandomNumber(rangeLimit) + rangeStart;
+        numberToCheck = getRandomNumber(RANGE_LIMIT) + RANGE_START;
         setQuestion(String.valueOf(getNumberToCheck()));
     }
 
     @Override
     public void defineRightAnswer() {
         setRightAnswer("yes");
-        if (getNumberToCheck() != rangeStart) {
-            for (int i = rangeStart + 1; i < getNumberToCheck(); i++) {
+        if (getNumberToCheck() != RANGE_START) {
+            for (int i = RANGE_START + 1; i < getNumberToCheck(); i++) {
                 if (getNumberToCheck() % i == 0) {
                     setRightAnswer("no");
                     break;
