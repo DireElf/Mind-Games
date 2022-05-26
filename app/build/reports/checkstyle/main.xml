@@ -5,10 +5,6 @@
 <file name="/home/direelf/java-project-lvl1/app/src/main/java/hexlet/code/Engine.java">
 </file>
 <file name="/home/direelf/java-project-lvl1/app/src/main/java/hexlet/code/Game.java">
-<error line="18" column="42" severity="error" message="&apos;question&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="26" column="45" severity="error" message="&apos;rightAnswer&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="34" column="44" severity="error" message="&apos;userAnswer&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="42" column="40" severity="error" message="&apos;gameCount&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
 <file name="/home/direelf/java-project-lvl1/app/src/main/java/hexlet/code/Playable.java">
 </file>

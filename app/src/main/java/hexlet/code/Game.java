@@ -15,32 +15,32 @@ public abstract class Game implements Playable {
         return question;
     }
 
-    public final void setQuestion(String question) {
-        this.question = question;
+    public final void setQuestion(String newQuestion) {
+        this.question = newQuestion;
     }
 
     public final String getRightAnswer() {
         return rightAnswer;
     }
 
-    public final void setRightAnswer(String rightAnswer) {
-        this.rightAnswer = rightAnswer;
+    public final void setRightAnswer(String newRightAnswer) {
+        this.rightAnswer = newRightAnswer;
     }
 
     public final String getUserAnswer() {
         return userAnswer;
     }
 
-    public final void setUserAnswer(String userAnswer) {
-        this.userAnswer = userAnswer;
+    public final void setUserAnswer(String newUserAnswer) {
+        this.userAnswer = newUserAnswer;
     }
 
     public final int getGameCount() {
         return gameCount;
     }
 
-    public final void setGameCount(int gameCount) {
-        this.gameCount = gameCount;
+    public final void setGameCount(int newGameCount) {
+        this.gameCount = newGameCount;
     }
 
 
