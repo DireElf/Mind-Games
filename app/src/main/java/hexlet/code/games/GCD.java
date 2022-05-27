@@ -1,9 +1,10 @@
 package hexlet.code.games;
 
+
 import hexlet.code.Engine;
 
 public class GCD {
-    public static final String question = "Find the greatest common divisor of given numbers.";
+    public static final String QUESTION = "Find the greatest common divisor of given numbers.";
     private static final int RANGE_LIMIT = 100;
     private static final int RANGE_START = 1;
 

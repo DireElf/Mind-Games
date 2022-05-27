@@ -1,9 +1,10 @@
 package hexlet.code.games;
 
+
 import hexlet.code.Engine;
 
 public class Progression {
-    public static final String question = "What number is missing in the progression?";
+    public static final String QUESTION = "What number is missing in the progression?";
     private static final int PROGRESSION_DIMENSION = 100;
     private static final int PROGRESSION_SIZE = 10;
     private static final int STEP_DIMENSION = 10;

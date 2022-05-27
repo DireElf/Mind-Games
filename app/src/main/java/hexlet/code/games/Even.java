@@ -1,10 +1,11 @@
 package hexlet.code.games;
 
+
 import hexlet.code.Engine;
 
 public class Even {
     private static final int RANGE_LIMIT = 100;
-    public static final String question = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static String[] defineTasks() {
         String[] result = new String[Engine.ROUNDS_NUMBER];

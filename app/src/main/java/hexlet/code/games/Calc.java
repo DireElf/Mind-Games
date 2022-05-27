@@ -4,17 +4,17 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    public static final String question = "What is the result of the expression?";
+    public static final String QUESTION = "What is the result of the expression?";
     private static final int RANGE_LIMIT = 10;
-    private static final char[] operators = {'+', '-', '*'};
-    private static final int choiceBound = 2;
+    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int CHOICE_BOUND = 2;
 
     public static String[] defineTasks() {
         String[] result = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < result.length; i++) {
             int firstNumber = Engine.getRandomNumber(RANGE_LIMIT);
             int secondNumber = Engine.getRandomNumber(RANGE_LIMIT);
-            char operator = operators[Engine.getRandomNumber(choiceBound)];
+            char operator = OPERATORS[Engine.getRandomNumber(CHOICE_BOUND)];
             result[i] = firstNumber + " " + operator + " " + secondNumber;
         }
         return result;

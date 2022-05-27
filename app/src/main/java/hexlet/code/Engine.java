@@ -1,7 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
 
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,7 +16,6 @@ public class Engine {
     private static final int PROGRESSION_NUMBER = 5;
     private static final int PRIME_NUMBER = 6;
     private static final int EXIT_NUMBER = 0;
-
     public static final int ROUNDS_NUMBER = 3;
 
     private static int userChoice;
@@ -38,27 +41,27 @@ public class Engine {
                 greeting();
                 break;
             case EVEN_NUMBER:
-                initialise(Even.question, Even.defineTasks());
+                initialise(Even.QUESTION, Even.defineTasks());
                 initialise(Even.defineRightAnswers(tasks));
                 letsPlay();
                 break;
             case CALC_NUMBER:
-                initialise(Calc.question, Calc.defineTasks());
+                initialise(Calc.QUESTION, Calc.defineTasks());
                 initialise(Calc.defineRightAnswers(tasks));
                 letsPlay();
                 break;
             case GCD_NUMBER:
-                initialise(GCD.question, GCD.defineTasks());
+                initialise(GCD.QUESTION, GCD.defineTasks());
                 initialise(GCD.defineRightAnswers(tasks));
                 letsPlay();
                 break;
             case PROGRESSION_NUMBER:
-                initialise(Progression.question, Progression.defineTasks());
+                initialise(Progression.QUESTION, Progression.defineTasks());
                 initialise(Progression.defineRightAnswers());
                 letsPlay();
                 break;
             case PRIME_NUMBER:
-                initialise(Prime.question, Prime.defineTasks());
+                initialise(Prime.QUESTION, Prime.defineTasks());
                 initialise(Prime.defineRightAnswers(tasks));
                 letsPlay();
                 break;
@@ -116,7 +119,7 @@ public class Engine {
         return new Random().nextInt(bound);
     }
 
-    public static boolean isUserAnswerCorrect(int roundNumber, String[] rightAnswers) {
-        return userAnswer.equals(rightAnswers[roundNumber]);
+    public static boolean isUserAnswerCorrect(int roundNumber, String[] answers) {
+        return userAnswer.equals(answers[roundNumber]);
     }
 }
