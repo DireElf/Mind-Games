@@ -1,21 +1,18 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
+import hexlet.code.games.*;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-
     private static final int EVEN_NUMBER = 2;
     private static final int CALC_NUMBER = 3;
     private static final int GCD_NUMBER = 4;
-    //private static final int PROGRESSION_NUMBER = 5;
+    private static final int PROGRESSION_NUMBER = 5;
     private static final int PRIME_NUMBER = 6;
     private static final int EXIT_NUMBER = 0;
+
     public static final int ROUNDS_NUMBER = 3;
 
     private static int userChoice;
@@ -55,9 +52,11 @@ public class Engine {
                 initialise(GCD.defineRightAnswers(tasks));
                 letsPlay();
                 break;
-            /*case PROGRESSION_NUMBER:
-
-                break;*/
+            case PROGRESSION_NUMBER:
+                initialise(Progression.question, Progression.defineTasks());
+                initialise(Progression.defineRightAnswers());
+                letsPlay();
+                break;
             case PRIME_NUMBER:
                 initialise(Prime.question, Prime.defineTasks());
                 initialise(Prime.defineRightAnswers(tasks));
