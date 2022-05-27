@@ -1,43 +1,34 @@
-/*package hexlet.code.games;
+package hexlet.code.games;
+
+import hexlet.code.Engine;
 
 public class Prime {
-    private int numberToCheck;
-    private static final int RANGE_START = 2;
+    public static final String question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int RANGE_LIMIT = 100;
+    private static final int RANGE_START = 2;
 
-    public int getNumberToCheck() {
-        return numberToCheck;
+    public static String[] defineTasks() {
+        String[] result = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = String.valueOf(Engine.getRandomNumber(RANGE_LIMIT) + RANGE_START);
+        }
+        return result;
     }
 
-    @Override
-    public void printHowTo() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-    }
-
-    @Override
-    public void defineQuestion() {
-        numberToCheck = getRandomNumber(RANGE_LIMIT) + RANGE_START;
-        setQuestion(String.valueOf(getNumberToCheck()));
-    }
-
-    @Override
-    public void defineRightAnswer() {
-        setRightAnswer("yes");
-        if (getNumberToCheck() != RANGE_START) {
-            for (int i = RANGE_START + 1; i < getNumberToCheck(); i++) {
-                if (getNumberToCheck() % i == 0) {
-                    setRightAnswer("no");
-                    break;
+    public static String[] defineRightAnswers(String[] tasks) {
+        String[] result = new String[tasks.length];
+        for (int i = 0; i < tasks.length; i++) {
+            result[i] = "yes";
+            int a = Integer.parseInt(tasks[i]);
+            if (a != RANGE_START) {
+                for (int j = RANGE_START + 1; j < a; j++) {
+                    if (a % j == 0) {
+                        result[i] = "no";
+                        break;
+                    }
                 }
             }
         }
-    }
-
-    @Override
-    public boolean isUserAnswerCorrect() {
-        return getUserAnswer().equals(getRightAnswer());
+        return result;
     }
 }
-
-*/

@@ -3,32 +3,27 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    public static String[] tasks;
-    public static String[] rightAnswers;
     private static final int RANGE_LIMIT = 100;
     public static final String question = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void initialise(int roundsNumber) {
-        tasks = new String[roundsNumber];
-        for (int i = 0; i < tasks.length; i++) {
-            tasks[i] = defineTask();
+    public static String[] defineTasks() {
+        String[] result = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = String.valueOf(Engine.getRandomNumber(RANGE_LIMIT));
         }
-        rightAnswers = new String[roundsNumber];
-        for (int j = 0; j < tasks.length; j++) {
-            rightAnswers[j] = defineRightAnswer(tasks[j]);
-        }
+        return result;
     }
 
-    public static String defineTask() {
-        return String.valueOf(Engine.getRandomNumber(RANGE_LIMIT));
-    }
-
-    public static String defineRightAnswer(String input) {
-        if (Integer.parseInt(input) % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
+    public static String[] defineRightAnswers(String[] tasks) {
+        String[] result = new String[tasks.length];
+        for (int i = 0; i < result.length; i++) {
+            if (Integer.parseInt(tasks[i]) % 2 == 0) {
+                result[i] = "yes";
+            } else {
+                result[i] = "no";
+            }
         }
+        return result;
     }
 }
 

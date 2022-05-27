@@ -1,6 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,16 +11,19 @@ import java.util.Scanner;
 public class Engine {
 
     private static final int EVEN_NUMBER = 2;
-    /*private static final int CALC_NUMBER = 3;
+    private static final int CALC_NUMBER = 3;
     private static final int GCD_NUMBER = 4;
-    private static final int PROGRESSION_NUMBER = 5;
-    private static final int PRIME_NUMBER = 6;*/
+    //private static final int PROGRESSION_NUMBER = 5;
+    private static final int PRIME_NUMBER = 6;
     private static final int EXIT_NUMBER = 0;
-    private static final int ROUNDS_NUMBER = 3;
+    public static final int ROUNDS_NUMBER = 3;
 
     private static int userChoice;
     private static String userName;
     private static int gameCount;
+    private static String question;
+    private static String[] tasks;
+    private static String[] rightAnswers;
     private static String userAnswer;
 
     public static void chooseGame() {
@@ -35,24 +41,41 @@ public class Engine {
                 greeting();
                 break;
             case EVEN_NUMBER:
-                Even.initialise(ROUNDS_NUMBER);
-                letsPlay(Even.question, Even.tasks, Even.rightAnswers);
+                initialise(Even.question, Even.defineTasks());
+                initialise(Even.defineRightAnswers(tasks));
+                letsPlay();
                 break;
-            /*case CALC_NUMBER:
+            case CALC_NUMBER:
+                initialise(Calc.question, Calc.defineTasks());
+                initialise(Calc.defineRightAnswers(tasks));
                 letsPlay();
                 break;
             case GCD_NUMBER:
-
+                initialise(GCD.question, GCD.defineTasks());
+                initialise(GCD.defineRightAnswers(tasks));
+                letsPlay();
                 break;
-            case PROGRESSION_NUMBER:
+            /*case PROGRESSION_NUMBER:
 
+                break;*/
+            case PRIME_NUMBER:
+                initialise(Prime.question, Prime.defineTasks());
+                initialise(Prime.defineRightAnswers(tasks));
+                letsPlay();
                 break;
-            case PRIME_NUMBER:*/
-
         }
     }
 
-    public static void letsPlay(String question, String[] tasks, String[] rightAnswers) {
+    public static void initialise(String gameQuestion, String[] gameTasks) {
+        question = gameQuestion;
+        tasks = gameTasks;
+    }
+
+    public static void initialise(String[] gameAnswers) {
+        rightAnswers = gameAnswers;
+    }
+
+    public static void letsPlay() {
         greeting();
         while (gameCount < ROUNDS_NUMBER) {
             System.out.println(question);
@@ -91,7 +114,6 @@ public class Engine {
     }
 
     public static int getRandomNumber(int bound) {
-
         return new Random().nextInt(bound);
     }
 
