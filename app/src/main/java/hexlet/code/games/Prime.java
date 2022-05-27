@@ -1,8 +1,6 @@
-package hexlet.code.games;
+/*package hexlet.code.games;
 
-import hexlet.code.Game;
-
-public final class Prime extends Game {
+public class Prime {
     private int numberToCheck;
     private static final int RANGE_START = 2;
     private static final int RANGE_LIMIT = 100;
@@ -42,3 +40,4 @@ public final class Prime extends Game {
     }
 }
 
+*/

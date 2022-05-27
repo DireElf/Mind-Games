@@ -1,14 +1,15 @@
-package hexlet.code.games;
+/*package hexlet.code.games;
 
-import hexlet.code.Game;
+import hexlet.code.Engine;
 
-public final class Progression extends Game {
+import static hexlet.code.Engine.getRandomNumber;
+
+public class Progression {
     private int[] progressionRow;
     private int shadowAnswer;
     private static final int PROGRESSION_DIMENSION = 100;
     private static final int PROGRESSION_SIZE = 10;
     private static final int PROGRESSION_STEP_SIZE = 10;
-
 
     public int[] getProgressionRow() {
         return progressionRow;
@@ -21,7 +22,6 @@ public final class Progression extends Game {
     @Override
     public void printHowTo() {
         System.out.println("What number is missing in the progression?");
-
     }
 
     @Override
@@ -57,4 +57,4 @@ public final class Progression extends Game {
         return getUserAnswer().equals(getRightAnswer());
     }
 }
-
+*/

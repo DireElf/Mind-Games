@@ -1,8 +1,6 @@
-package hexlet.code.games;
+/*package hexlet.code.games;
 
-import hexlet.code.Game;
-
-public final class GCD extends Game {
+public class GCD {
     private int firstNumber;
     private int secondNumber;
     private static final int RANGE_LIMIT = 100;
@@ -47,4 +45,4 @@ public final class GCD extends Game {
         return getUserAnswer().equals(getRightAnswer());
     }
 }
-
+*/
