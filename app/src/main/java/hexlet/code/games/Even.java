@@ -1,31 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
 
-public final class Even extends Game {
+import hexlet.code.Engine;
+
+public class Even {
     private static final int RANGE_LIMIT = 100;
+    public static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    @Override
-    public void printHowTo() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    }
-
-    @Override
-    public void defineQuestion() {
-        setQuestion(String.valueOf(getRandomNumber(RANGE_LIMIT)));
-    }
-
-    @Override
-    public void defineRightAnswer() {
-        if (Integer.parseInt(getQuestion()) % 2 == 0) {
-            setRightAnswer("yes");
-        } else {
-            setRightAnswer("no");
+    public static String[] defineTasks() {
+        String[] result = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = String.valueOf(Engine.getRandomNumber(RANGE_LIMIT));
         }
+        return result;
     }
 
-    @Override
-    public boolean isUserAnswerCorrect() {
-        return getUserAnswer().equals(getRightAnswer());
+    public static String[] defineRightAnswers(String[] tasks) {
+        String[] result = new String[tasks.length];
+        for (int i = 0; i < result.length; i++) {
+            if (Integer.parseInt(tasks[i]) % 2 == 0) {
+                result[i] = "yes";
+            } else {
+                result[i] = "no";
+            }
+        }
+        return result;
     }
 }
+
+

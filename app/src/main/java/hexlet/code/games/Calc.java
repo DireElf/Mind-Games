@@ -1,60 +1,45 @@
 package hexlet.code.games;
 
 
-import hexlet.code.Game;
+import hexlet.code.Engine;
 
-public final class Calc extends Game {
-    private int firstNumber;
-    private int secondNumber;
-    private char operator;
+public class Calc {
+    public static final String QUESTION = "What is the result of the expression?";
     private static final int RANGE_LIMIT = 10;
+    private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int CHOICE_BOUND = 2;
 
-    public int getFirstNumber() {
-        return firstNumber;
-    }
-
-    public int getSecondNumber() {
-        return secondNumber;
-    }
-
-    public char getOperator() {
-        return operator;
-    }
-
-    @Override
-    public void printHowTo() {
-        System.out.println("What is the result of the expression?");
-    }
-
-    @Override
-    public void defineQuestion() {
-        firstNumber = getRandomNumber(RANGE_LIMIT);
-        secondNumber = getRandomNumber(RANGE_LIMIT);
-        char[] operators = {'+', '-', '*'};
-        int choiceBound = 2;
-        operator = operators[getRandomNumber(choiceBound)];
-        setQuestion(getFirstNumber() + " " + getOperator() + " " + getSecondNumber());
-    }
-
-    @Override
-    public void defineRightAnswer() {
-        switch (getOperator()) {
-            case '*':
-                setRightAnswer(String.valueOf(getFirstNumber() * getSecondNumber()));
-                break;
-            case '-':
-                setRightAnswer(String.valueOf(getFirstNumber() - getSecondNumber()));
-                break;
-            case '+':
-                setRightAnswer(String.valueOf(getFirstNumber() + getSecondNumber()));
-                break;
-            default:
-                break;
+    public static String[] defineTasks() {
+        String[] result = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < result.length; i++) {
+            int firstNumber = Engine.getRandomNumber(RANGE_LIMIT);
+            int secondNumber = Engine.getRandomNumber(RANGE_LIMIT);
+            char operator = OPERATORS[Engine.getRandomNumber(CHOICE_BOUND)];
+            result[i] = firstNumber + " " + operator + " " + secondNumber;
         }
+        return result;
     }
 
-    @Override
-    public boolean isUserAnswerCorrect() {
-        return getUserAnswer().equals(getRightAnswer());
+    public static String[] defineRightAnswers(String[] tasks) {
+        String[] result = new String[tasks.length];
+        for (int i = 0; i < tasks.length; i++) {
+            String[] task = tasks[i].split(" ");
+            int a = Integer.parseInt(task[0]);
+            int b = Integer.parseInt(task[2]);
+            switch (task[1]) {
+                case "*":
+                    result[i] = String.valueOf(a * b);
+                    break;
+                case "-":
+                    result[i] = String.valueOf(a - b);
+                    break;
+                case "+":
+                    result[i] = String.valueOf(a + b);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return result;
     }
 }

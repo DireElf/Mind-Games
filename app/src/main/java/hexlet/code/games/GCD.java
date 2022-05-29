@@ -1,37 +1,35 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
 
-public final class GCD extends Game {
-    private int firstNumber;
-    private int secondNumber;
+import hexlet.code.Engine;
+
+public class GCD {
+    public static final String QUESTION = "Find the greatest common divisor of given numbers.";
     private static final int RANGE_LIMIT = 100;
+    private static final int RANGE_START = 1;
 
-    public int getFirstNumber() {
-        return firstNumber;
+    public static String[] defineTasks() {
+        String[] result = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < result.length; i++) {
+            int firstNumber = Engine.getRandomNumber(RANGE_LIMIT) + RANGE_START;
+            int secondNumber = Engine.getRandomNumber(RANGE_LIMIT) + RANGE_START;
+            result[i] = firstNumber + " " + secondNumber;
+        }
+        return result;
     }
 
-    public int getSecondNumber() {
-        return secondNumber;
+    public static String[] defineRightAnswers(String[] tasks) {
+        String[] result = new String[tasks.length];
+        for (int i = 0; i < tasks.length; i++) {
+            String[] task = tasks[i].split(" ");
+            int a = Integer.parseInt(task[0]);
+            int b = Integer.parseInt(task[1]);
+            result[i] = String.valueOf(findGCD(a, b));
+        }
+        return result;
     }
 
-    @Override
-    public void printHowTo() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-
-    }
-
-    @Override
-    public void defineQuestion() {
-        firstNumber = getRandomNumber(RANGE_LIMIT) + 1; // add 1 to avoid zero value
-        secondNumber = getRandomNumber(RANGE_LIMIT) + 1; // add 1 to avoid zero value
-        setQuestion(getFirstNumber() + " " + getSecondNumber());
-    }
-
-    @Override
-    public void defineRightAnswer() {
-        int a = getFirstNumber();
-        int b = getSecondNumber();
+    private static int findGCD(int a, int b) {
         while (a != 0 && b != 0) {
             if (a > b) {
                 a = a % b;
@@ -39,12 +37,7 @@ public final class GCD extends Game {
                 b = b % a;
             }
         }
-        setRightAnswer(String.valueOf(a + b));
-    }
-
-    @Override
-    public boolean isUserAnswerCorrect() {
-        return getUserAnswer().equals(getRightAnswer());
+        return a + b;
     }
 }
 
