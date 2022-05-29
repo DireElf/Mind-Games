@@ -9,7 +9,7 @@ public abstract class Game implements Playable {
     private String rightAnswer;
     private String userAnswer;
     private int gameCount;
-    private static final int ROUNDS_AMOUNT = 3;
+    private final int roundsAmount = 3;
 
     public final String getQuestion() {
         return question;
@@ -45,9 +45,8 @@ public abstract class Game implements Playable {
 
 
     public final void letsPlay() {
-        User.greeting();
         printHowTo();
-        while (gameCount < ROUNDS_AMOUNT) {
+        while (gameCount < roundsAmount) {
             defineQuestion();
             defineRightAnswer();
             printQuestion();

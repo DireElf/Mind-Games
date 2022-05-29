@@ -31,7 +31,6 @@ class Engine {
         switch (userChoice) {
             default:
                 User.greeting();
-                break;
             case EVEN_NUMBER:
                 new Even().letsPlay();
                 break;

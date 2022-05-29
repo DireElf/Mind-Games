@@ -5,7 +5,7 @@ import hexlet.code.Game;
 public final class GCD extends Game {
     private int firstNumber;
     private int secondNumber;
-    private static final int RANGE_LIMIT = 100;
+    private final int rangeLimit = 100;
 
     public int getFirstNumber() {
         return firstNumber;
@@ -23,8 +23,8 @@ public final class GCD extends Game {
 
     @Override
     public void defineQuestion() {
-        firstNumber = getRandomNumber(RANGE_LIMIT) + 1; // add 1 to avoid zero value
-        secondNumber = getRandomNumber(RANGE_LIMIT) + 1; // add 1 to avoid zero value
+        firstNumber = getRandomNumber(rangeLimit) + 1; // add 1 to avoid zero value
+        secondNumber = getRandomNumber(rangeLimit) + 1; // add 1 to avoid zero value
         setQuestion(getFirstNumber() + " " + getSecondNumber());
     }
 

@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Game;
 
 public final class Even extends Game {
-    private static final int RANGE_LIMIT = 100;
+    private final int rangeLimit = 100;
 
     @Override
     public void printHowTo() {
@@ -12,7 +12,7 @@ public final class Even extends Game {
 
     @Override
     public void defineQuestion() {
-        setQuestion(String.valueOf(getRandomNumber(RANGE_LIMIT)));
+        setQuestion(String.valueOf(getRandomNumber(rangeLimit)));
     }
 
     @Override
