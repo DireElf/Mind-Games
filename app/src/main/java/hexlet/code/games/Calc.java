@@ -7,7 +7,7 @@ public final class Calc extends Game {
     private int firstNumber;
     private int secondNumber;
     private char operator;
-    private final int rangeLimit = 10;
+    private static final int RANGE_LIMIT = 10;
 
     public int getFirstNumber() {
         return firstNumber;
@@ -28,8 +28,8 @@ public final class Calc extends Game {
 
     @Override
     public void defineQuestion() {
-        firstNumber = getRandomNumber(rangeLimit);
-        secondNumber = getRandomNumber(rangeLimit);
+        firstNumber = getRandomNumber(RANGE_LIMIT);
+        secondNumber = getRandomNumber(RANGE_LIMIT);
         char[] operators = {'+', '-', '*'};
         int choiceBound = 2;
         operator = operators[getRandomNumber(choiceBound)];

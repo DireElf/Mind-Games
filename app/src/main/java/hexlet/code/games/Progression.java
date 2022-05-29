@@ -5,9 +5,9 @@ import hexlet.code.Game;
 public final class Progression extends Game {
     private int[] progressionRow;
     private int shadowAnswer;
-    private final int progressionDimension = 100;
-    private final int progressionSize = 10;
-    private final int progressionStepsRange = 10;
+    private static final int PROGRESSION_DIMENSION = 100;
+    private static final int PROGRESSION_SIZE = 10;
+    private static final int PROGRESSION_STEP_SIZE = 10;
 
 
     public int[] getProgressionRow() {
@@ -26,13 +26,13 @@ public final class Progression extends Game {
 
     @Override
     public void defineQuestion() {
-        progressionRow = new int[progressionSize];
-        int step = getRandomNumber(progressionStepsRange);
-        progressionRow[0] = getRandomNumber(progressionDimension);
+        progressionRow = new int[PROGRESSION_SIZE];
+        int step = getRandomNumber(PROGRESSION_STEP_SIZE);
+        progressionRow[0] = getRandomNumber(PROGRESSION_DIMENSION);
         for (int i = 1; i < progressionRow.length; i++) {
             progressionRow[i] = progressionRow[i - 1] + step;
         }
-        int answerNumber = getRandomNumber(progressionSize);
+        int answerNumber = getRandomNumber(PROGRESSION_SIZE);
         shadowAnswer = progressionRow[answerNumber];
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < answerNumber; i++) {
