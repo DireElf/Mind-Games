@@ -11,4 +11,5 @@ build
 bin
 .project*
 .classpath
+idea/
 .idea/
