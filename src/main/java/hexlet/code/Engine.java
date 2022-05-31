@@ -19,7 +19,6 @@ public class Engine {
     public static final int ROUNDS_NUMBER = 3;
 
     private static int userChoice;
-    private static String userName;
     private static int gameCount;
     private static String question;
     private static String[] tasks;
@@ -38,7 +37,7 @@ public class Engine {
         }
         switch (userChoice) {
             default:
-                greeting();
+                Cli.greeting();
                 break;
             case EVEN_NUMBER:
                 initialise(Even.QUESTION, Even.defineTasks());
@@ -78,7 +77,7 @@ public class Engine {
     }
 
     public static void play() {
-        greeting();
+        Cli.greeting();
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             System.out.println(question);
             printTask(tasks[gameCount]);
@@ -88,23 +87,15 @@ public class Engine {
                 gameCount++;
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was "
-                        + rightAnswers[gameCount] + ".\nLet's try again, " + Engine.userName + "!");
+                        + rightAnswers[gameCount] + ".\nLet's try again, " + Cli.getUserName() + "!");
                 return;
             }
         }
         congrats();
     }
 
-    public static void greeting() {
-        System.out.println("Welcome to the Brain Games!");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("May I have your name?");
-        userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
-    }
-
     public static void congrats() {
-        System.out.println("Congratulations, " + userName + "!");
+        System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }
 
     public static void printTask(String task) {
