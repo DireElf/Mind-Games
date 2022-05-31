@@ -1,65 +1,25 @@
 package hexlet.code;
 
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Engine {
     public static final int ROUNDS_NUMBER = 3;
-
-    private static String userChoice;
     private static int gameCount;
     private static String question;
+
+    public static String[] getTasks() {
+        return tasks;
+    }
+
+    public static void setTasks(String[] newTasks) {
+        Engine.tasks = newTasks;
+    }
+
     private static String[] tasks;
     private static String[] rightAnswers;
     private static String userAnswer;
-
-    public static void chooseGame() {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
-        userChoice = new Scanner(System.in).next();
-        System.out.println("Your choice: " + userChoice);
-    }
-    public static void startChosenGame() {
-        if (userChoice.equals("0")) {
-            return;
-        }
-        switch (userChoice) {
-            default:
-                Cli.greeting();
-                break;
-            case "2":
-                initialise(Even.QUESTION, Even.defineTasks());
-                initialise(Even.defineRightAnswers(tasks));
-                play();
-                break;
-            case "3":
-                initialise(Calc.QUESTION, Calc.defineTasks());
-                initialise(Calc.defineRightAnswers(tasks));
-                play();
-                break;
-            case "4":
-                initialise(GCD.QUESTION, GCD.defineTasks());
-                initialise(GCD.defineRightAnswers(tasks));
-                play();
-                break;
-            case "5":
-                initialise(Progression.QUESTION, Progression.defineTasks());
-                initialise(Progression.defineRightAnswers());
-                play();
-                break;
-            case "6":
-                initialise(Prime.QUESTION, Prime.defineTasks());
-                initialise(Prime.defineRightAnswers(tasks));
-                play();
-                break;
-        }
-    }
 
     public static void initialise(String gameQuestion, String[] gameTasks) {
         question = gameQuestion;
