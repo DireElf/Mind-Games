@@ -2,7 +2,6 @@ package hexlet.code;
 
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class Engine {
     public static final int ROUNDS_NUMBER = 3;
@@ -58,10 +57,6 @@ public class Engine {
 
     public static String getUserAnswer() {
         return new Scanner(System.in).next();
-    }
-
-    public static int getRandomNumber(int bound) {
-        return new Random().nextInt(bound);
     }
 
     public static boolean isUserAnswerCorrect(int roundNumber, String[] answers) {

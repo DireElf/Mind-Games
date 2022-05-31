@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
     public static final String QUESTION = "Find the greatest common divisor of given numbers.";
@@ -11,8 +12,8 @@ public class GCD {
     public static String[] defineTasks() {
         String[] result = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < result.length; i++) {
-            int firstNumber = Engine.getRandomNumber(RANGE_LIMIT) + RANGE_START;
-            int secondNumber = Engine.getRandomNumber(RANGE_LIMIT) + RANGE_START;
+            int firstNumber = Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START;
+            int secondNumber = Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START;
             result[i] = firstNumber + " " + secondNumber;
         }
         return result;

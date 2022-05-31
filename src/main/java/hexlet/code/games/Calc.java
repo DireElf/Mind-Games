@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
     public static final String QUESTION = "What is the result of the expression?";
@@ -11,9 +12,9 @@ public class Calc {
     public static String[] defineTasks() {
         String[] result = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < result.length; i++) {
-            int firstNumber = Engine.getRandomNumber(RANGE_LIMIT);
-            int secondNumber = Engine.getRandomNumber(RANGE_LIMIT);
-            char operator = OPERATORS[Engine.getRandomNumber(OPERATORS.length)];
+            int firstNumber = Utils.getRandomNumber(RANGE_LIMIT);
+            int secondNumber = Utils.getRandomNumber(RANGE_LIMIT);
+            char operator = OPERATORS[Utils.getRandomNumber(OPERATORS.length)];
             result[i] = firstNumber + " " + operator + " " + secondNumber;
         }
         return result;
