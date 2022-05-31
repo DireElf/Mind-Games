@@ -7,15 +7,6 @@ public class Engine {
     public static final int ROUNDS_NUMBER = 3;
     private static int gameCount;
     private static String question;
-
-    public static String[] getTasks() {
-        return tasks;
-    }
-
-    public static void setTasks(String[] newTasks) {
-        Engine.tasks = newTasks;
-    }
-
     private static String[] tasks;
     private static String[] rightAnswers;
     private static String userAnswer;
@@ -33,9 +24,9 @@ public class Engine {
         Cli.greeting();
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             System.out.println(question);
-            printTask(tasks[gameCount]);
-            userAnswer = getUserAnswer();
-            if (isUserAnswerCorrect(gameCount, rightAnswers)) {
+            System.out.print("Question: " + tasks[gameCount] + "\nYour answer: ");
+            userAnswer = new Scanner(System.in).next();
+            if (userAnswer.equals(rightAnswers[gameCount])) {
                 System.out.println("Correct!");
                 gameCount++;
             } else {
@@ -44,22 +35,14 @@ public class Engine {
                 return;
             }
         }
-        congrats();
-    }
-
-    public static void congrats() {
         System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }
 
-    public static void printTask(String task) {
-        System.out.print("Question: " + task + "\nYour answer: ");
+    public static String[] getTasks() {
+        return tasks;
     }
 
-    public static String getUserAnswer() {
-        return new Scanner(System.in).next();
-    }
-
-    public static boolean isUserAnswerCorrect(int roundNumber, String[] answers) {
-        return userAnswer.equals(answers[roundNumber]);
+    public static void setTasks(String[] newTasks) {
+        Engine.tasks = newTasks;
     }
 }
