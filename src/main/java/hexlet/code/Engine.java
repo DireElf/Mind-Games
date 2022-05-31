@@ -43,27 +43,27 @@ public class Engine {
             case EVEN_NUMBER:
                 initialise(Even.QUESTION, Even.defineTasks());
                 initialise(Even.defineRightAnswers(tasks));
-                letsPlay();
+                play();
                 break;
             case CALC_NUMBER:
                 initialise(Calc.QUESTION, Calc.defineTasks());
                 initialise(Calc.defineRightAnswers(tasks));
-                letsPlay();
+                play();
                 break;
             case GCD_NUMBER:
                 initialise(GCD.QUESTION, GCD.defineTasks());
                 initialise(GCD.defineRightAnswers(tasks));
-                letsPlay();
+                play();
                 break;
             case PROGRESSION_NUMBER:
                 initialise(Progression.QUESTION, Progression.defineTasks());
                 initialise(Progression.defineRightAnswers());
-                letsPlay();
+                play();
                 break;
             case PRIME_NUMBER:
                 initialise(Prime.QUESTION, Prime.defineTasks());
                 initialise(Prime.defineRightAnswers(tasks));
-                letsPlay();
+                play();
                 break;
         }
     }
@@ -77,7 +77,7 @@ public class Engine {
         rightAnswers = gameAnswers;
     }
 
-    public static void letsPlay() {
+    public static void play() {
         greeting();
         while (gameCount < ROUNDS_NUMBER) {
             System.out.println(question);
