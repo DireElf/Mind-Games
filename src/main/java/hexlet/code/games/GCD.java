@@ -9,25 +9,23 @@ public class GCD {
     private static final int RANGE_LIMIT = 100;
     private static final int RANGE_START = 1;
 
-    public static String[] defineTasks() {
-        String[] result = new String[Engine.ROUNDS_NUMBER];
-        for (int i = 0; i < result.length; i++) {
+    public static void prepare() {
+        Engine.setQuestion(QUESTION);
+        String[] tasks = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < tasks.length; i++) {
             int firstNumber = Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START;
             int secondNumber = Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START;
-            result[i] = firstNumber + " " + secondNumber;
+            tasks[i] = firstNumber + " " + secondNumber;
         }
-        return result;
-    }
-
-    public static String[] defineRightAnswers(String[] tasks) {
-        String[] result = new String[tasks.length];
-        for (int i = 0; i < tasks.length; i++) {
+        Engine.setTasks(tasks);
+        String[] answers = new String[tasks.length];
+        for (int i = 0; i < answers.length; i++) {
             String[] task = tasks[i].split(" ");
             int a = Integer.parseInt(task[0]);
             int b = Integer.parseInt(task[1]);
-            result[i] = String.valueOf(findGCD(a, b));
+            answers[i] = String.valueOf(findGCD(a, b));
         }
-        return result;
+        Engine.setRightAnswers(answers);
     }
 
     private static int findGCD(int a, int b) {

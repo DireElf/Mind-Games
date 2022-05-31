@@ -11,11 +11,12 @@ public class Progression {
     private static final int STEP_DIMENSION = 10;
     private static int[] shadowAnswers;
 
-    public static String[] defineTasks() {
-        String[] result = new String[Engine.ROUNDS_NUMBER];
+    public static void prepare() {
+        Engine.setQuestion(QUESTION);
+        String[] tasks = new String[Engine.ROUNDS_NUMBER];
         int[] progressionRow = new int[PROGRESSION_SIZE];
         shadowAnswers = new int[Engine.ROUNDS_NUMBER];
-        for (int i = 0; i < result.length; i++) {
+        for (int i = 0; i < tasks.length; i++) {
             int step = Utils.getRandomNumber(STEP_DIMENSION);
             progressionRow[0] = Utils.getRandomNumber(PROGRESSION_DIMENSION);
             for (int j = 1; j < progressionRow.length; j++) {
@@ -33,17 +34,14 @@ public class Progression {
                 sb.append(progressionRow[m]);
                 sb.append(" ");
             }
-            result[i] = sb.toString();
+            tasks[i] = sb.toString();
         }
-        return result;
-    }
-
-    public static String[] defineRightAnswers() {
-        String[] result = new String[Engine.ROUNDS_NUMBER];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = String.valueOf(shadowAnswers[i]);
+        Engine.setTasks(tasks);
+        String[] answers = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < answers.length; i++) {
+            answers[i] = String.valueOf(shadowAnswers[i]);
         }
-        return result;
+        Engine.setRightAnswers(answers);
     }
 }
 

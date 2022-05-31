@@ -5,27 +5,25 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Even {
-    private static final int RANGE_LIMIT = 100;
     public static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int RANGE_LIMIT = 100;
 
-    public static String[] defineTasks() {
-        String[] result = new String[Engine.ROUNDS_NUMBER];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = String.valueOf(Utils.getRandomNumber(RANGE_LIMIT));
+    public static void prepare() {
+        Engine.setQuestion(QUESTION);
+        String[] tasks = new String[Engine.ROUNDS_NUMBER];
+        for (int i = 0; i < tasks.length; i++) {
+            tasks[i] = String.valueOf(Utils.getRandomNumber(RANGE_LIMIT));
         }
-        return result;
-    }
-
-    public static String[] defineRightAnswers(String[] tasks) {
-        String[] result = new String[tasks.length];
-        for (int i = 0; i < result.length; i++) {
+        Engine.setTasks(tasks);
+        String[] answers = new String[tasks.length];
+        for (int i = 0; i < answers.length; i++) {
             if (Integer.parseInt(tasks[i]) % 2 == 0) {
-                result[i] = "yes";
+                answers[i] = "yes";
             } else {
-                result[i] = "no";
+                answers[i] = "no";
             }
         }
-        return result;
+        Engine.setRightAnswers(answers);
     }
 }
 

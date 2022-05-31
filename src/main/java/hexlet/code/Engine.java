@@ -11,15 +11,6 @@ public class Engine {
     private static String[] rightAnswers;
     private static String userAnswer;
 
-    public static void initialise(String gameQuestion, String[] gameTasks) {
-        question = gameQuestion;
-        tasks = gameTasks;
-    }
-
-    public static void initialise(String[] gameAnswers) {
-        rightAnswers = gameAnswers;
-    }
-
     public static void play() {
         Cli.greeting();
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
@@ -44,5 +35,29 @@ public class Engine {
 
     public static void setTasks(String[] newTasks) {
         Engine.tasks = newTasks;
+    }
+
+    public static String getQuestion() {
+        return question;
+    }
+
+    public static void setQuestion(String newQuestion) {
+        Engine.question = newQuestion;
+    }
+
+    public static String[] getRightAnswers() {
+        return rightAnswers;
+    }
+
+    public static void setRightAnswers(String[] newRightAnswers) {
+        Engine.rightAnswers = newRightAnswers;
+    }
+
+    public static String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public static void setUserAnswer(String newUserAnswer) {
+        Engine.userAnswer = newUserAnswer;
     }
 }

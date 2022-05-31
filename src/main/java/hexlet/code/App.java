@@ -22,28 +22,23 @@ class App {
                 Cli.greeting();
                 break;
             case "2":
-                Engine.initialise(Even.QUESTION, Even.defineTasks());
-                Engine.initialise(Even.defineRightAnswers(Engine.getTasks()));
+                Even.prepare();
                 Engine.play();
                 break;
             case "3":
-                Engine.initialise(Calc.QUESTION, Calc.defineTasks());
-                Engine.initialise(Calc.defineRightAnswers(Engine.getTasks()));
+                Calc.prepare();
                 Engine.play();
                 break;
             case "4":
-                Engine.initialise(GCD.QUESTION, GCD.defineTasks());
-                Engine.initialise(GCD.defineRightAnswers(Engine.getTasks()));
+                GCD.prepare();
                 Engine.play();
                 break;
             case "5":
-                Engine.initialise(Progression.QUESTION, Progression.defineTasks());
-                Engine.initialise(Progression.defineRightAnswers());
+                Progression.prepare();
                 Engine.play();
                 break;
             case "6":
-                Engine.initialise(Prime.QUESTION, Prime.defineTasks());
-                Engine.initialise(Prime.defineRightAnswers(Engine.getTasks()));
+                Prime.prepare();
                 Engine.play();
                 break;
         }
