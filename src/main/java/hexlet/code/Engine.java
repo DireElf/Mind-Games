@@ -79,7 +79,7 @@ public class Engine {
 
     public static void play() {
         greeting();
-        while (gameCount < ROUNDS_NUMBER) {
+        for (int i = 0; i < ROUNDS_NUMBER; i++) {
             System.out.println(question);
             printTask(tasks[gameCount]);
             userAnswer = getUserAnswer();
