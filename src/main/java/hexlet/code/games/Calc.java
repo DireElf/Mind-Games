@@ -22,22 +22,21 @@ public class Calc {
         String[] answers = new String[tasks.length];
         for (int i = 0; i < tasks.length; i++) {
             String[] ops = tasks[i].split(" ");
-            int a = Integer.parseInt(ops[0]);
-            int b = Integer.parseInt(ops[2]);
-            switch (ops[1]) {
-                case "*":
-                    answers[i] = String.valueOf(a * b);
-                    break;
-                case "-":
-                    answers[i] = String.valueOf(a - b);
-                    break;
-                case "+":
-                    answers[i] = String.valueOf(a + b);
-                    break;
-                default:
-                    break;
-            }
+            answers[i] = calculate(Integer.parseInt(ops[0]), Integer.parseInt(ops[2]), ops[1]);
         }
         Engine.setRightAnswers(answers);
+    }
+
+    public static String calculate(int arg1, int arg2, String operator) {
+        switch (operator) {
+            case "*":
+                return String.valueOf(arg1 * arg2);
+            case "-":
+                return String.valueOf(arg1 - arg2);
+            case "+":
+                return String.valueOf(arg1 + arg2);
+            default:
+                throw new RuntimeException("Unknown operator");
+        }
     }
 }
