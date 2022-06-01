@@ -17,13 +17,17 @@ public class Even {
         Engine.setTasks(tasks);
         String[] answers = new String[tasks.length];
         for (int i = 0; i < answers.length; i++) {
-            if (Integer.parseInt(tasks[i]) % 2 == 0) {
-                answers[i] = "yes";
-            } else {
-                answers[i] = "no";
-            }
+            answers[i] = checkParity(Integer.parseInt(tasks[i]));
         }
         Engine.setRightAnswers(answers);
+    }
+
+    public static String checkParity(int number) {
+        if (number % 2 == 0) {
+            return "yes";
+        } else {
+            return "no";
+        }
     }
 }
 
