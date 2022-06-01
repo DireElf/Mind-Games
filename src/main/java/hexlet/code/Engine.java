@@ -12,21 +12,26 @@ public class Engine {
     private static String userAnswer;
 
     public static void play() {
-        Cli.greeting();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name?");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             System.out.println(question);
             System.out.print("Question: " + tasks[gameCount] + "\nYour answer: ");
-            userAnswer = new Scanner(System.in).next();
+            userAnswer = scanner.next();
             if (userAnswer.equals(rightAnswers[gameCount])) {
                 System.out.println("Correct!");
                 gameCount++;
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was "
-                        + rightAnswers[gameCount] + ".\nLet's try again, " + Cli.getUserName() + "!");
+                        + rightAnswers[gameCount] + ".\nLet's try again, " + userName + "!");
                 return;
             }
         }
-        System.out.println("Congratulations, " + Cli.getUserName() + "!");
+        System.out.println("Congratulations, " + userName + "!");
+        scanner.close();
     }
 
     public static String[] getTasks() {

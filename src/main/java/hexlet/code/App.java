@@ -20,7 +20,11 @@ class App {
                 System.out.println("Goodbye!");
                 break;
             case "1":
-                Cli.greeting();
+                System.out.println("Welcome to the Brain Games!");
+                System.out.println("May I have your name?");
+                scanner = new Scanner(System.in);
+                String userName = scanner.next();
+                System.out.println("Hello, " + userName + "!");
                 break;
             case "2":
                 Even.prepare();
