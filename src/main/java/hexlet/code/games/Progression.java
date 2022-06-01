@@ -14,14 +14,13 @@ public class Progression {
     public static void prepare() {
         Engine.setQuestion(QUESTION);
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
-        int[] progressionRow = new int[PROGRESSION_SIZE];
         shadowAnswers = new int[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
-            int step = Utils.getRandomNumber(STEP_DIMENSION);
-            progressionRow[0] = Utils.getRandomNumber(PROGRESSION_DIMENSION);
-            for (int j = 1; j < progressionRow.length; j++) {
-                progressionRow[j] = progressionRow[j - 1] + step;
-            }
+            int[] progressionRow = createProgressionRow(
+                    Utils.getRandomNumber(PROGRESSION_DIMENSION),
+                    Utils.getRandomNumber(STEP_DIMENSION),
+                    PROGRESSION_SIZE
+            );
             int answerNumber = Utils.getRandomNumber(PROGRESSION_SIZE);
             shadowAnswers[i] = progressionRow[answerNumber];
             StringBuilder sb = new StringBuilder();
@@ -42,6 +41,14 @@ public class Progression {
             answers[i] = String.valueOf(shadowAnswers[i]);
         }
         Engine.setRightAnswers(answers);
+    }
+
+    private static int[] createProgressionRow(int start, int step, int length) {
+        int[] result = new int[length];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = start + (step * i);
+        }
+        return result;
     }
 }
 
