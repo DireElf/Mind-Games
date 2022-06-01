@@ -12,13 +12,14 @@ class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
-        String userChoice = new Scanner(System.in).next();
+        Scanner scanner = new Scanner(System.in);
+        String userChoice = scanner.next();
         System.out.println("Your choice: " + userChoice);
-        if (userChoice.equals("0")) {
-            return;
-        }
         switch (userChoice) {
-            default:
+            case "0":
+                System.out.println("Goodbye!");
+                break;
+            case "1":
                 Cli.greeting();
                 break;
             case "2":
@@ -41,6 +42,9 @@ class App {
                 Prime.prepare();
                 Engine.play();
                 break;
+            default:
+                throw new RuntimeException("Wrong input");
         }
+        scanner.close();
     }
 }
