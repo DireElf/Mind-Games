@@ -27,7 +27,7 @@ public class Calc {
         Engine.setRightAnswers(answers);
     }
 
-    public static String calculate(int arg1, int arg2, String operator) {
+    private static String calculate(int arg1, int arg2, String operator) {
         switch (operator) {
             case "*":
                 return String.valueOf(arg1 * arg2);

@@ -18,17 +18,19 @@ public class Prime {
         Engine.setTasks(tasks);
         String[] answers = new String[tasks.length];
         for (int i = 0; i < answers.length; i++) {
-            answers[i] = "yes";
-            int a = Integer.parseInt(tasks[i]);
-            if (a != RANGE_START) {
-                for (int j = RANGE_START + 1; j < a; j++) {
-                    if (a % j == 0) {
-                        answers[i] = "no";
-                        break;
-                    }
+            answers[i] = checkPrime(Integer.parseInt(tasks[i]));
+        }
+        Engine.setRightAnswers(answers);
+    }
+
+    private static String checkPrime(int number) {
+        if (number != RANGE_START) {
+            for (int j = RANGE_START + 1; j < number; j++) {
+                if (number % j == 0) {
+                    return "no";
                 }
             }
         }
-        Engine.setRightAnswers(answers);
+        return "yes";
     }
 }

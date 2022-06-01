@@ -22,7 +22,7 @@ public class Even {
         Engine.setRightAnswers(answers);
     }
 
-    public static String checkParity(int number) {
+    private static String checkParity(int number) {
         if (number % 2 == 0) {
             return "yes";
         } else {
