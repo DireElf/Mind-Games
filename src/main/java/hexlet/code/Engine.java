@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS_NUMBER = 3;
-    private static int gameCount;
     private static String question;
     private static String[] tasks;
     private static String[] rightAnswers;
@@ -19,14 +18,13 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             System.out.println(question);
-            System.out.print("Question: " + tasks[gameCount] + "\nYour answer: ");
+            System.out.print("Question: " + tasks[i] + "\nYour answer: ");
             userAnswer = scanner.next();
-            if (userAnswer.equals(rightAnswers[gameCount])) {
+            if (userAnswer.equals(rightAnswers[i])) {
                 System.out.println("Correct!");
-                gameCount++;
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was "
-                        + rightAnswers[gameCount] + ".\nLet's try again, " + userName + "!");
+                        + rightAnswers[i] + ".\nLet's try again, " + userName + "!");
                 return;
             }
         }
