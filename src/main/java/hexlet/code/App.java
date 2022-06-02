@@ -27,24 +27,19 @@ class App {
                 System.out.println("Hello, " + userName + "!");
                 break;
             case "2":
-                Even.prepare();
-                Engine.play();
+                Even.play();
                 break;
             case "3":
-                Calc.prepare();
-                Engine.play();
+                Calc.play();
                 break;
             case "4":
-                GCD.prepare();
-                Engine.play();
+                GCD.play();
                 break;
             case "5":
-                Progression.prepare();
-                Engine.play();
+                Progression.play();
                 break;
             case "6":
-                Prime.prepare();
-                Engine.play();
+                Prime.play();
                 break;
             default:
                 throw new RuntimeException("Wrong input: " + userChoice);

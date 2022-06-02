@@ -5,22 +5,20 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Prime {
-    public static final String QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static final String[] QUESTION = {"Answer 'yes' if given number is prime. Otherwise answer 'no'."};
     private static final int LOWER_BOUND = 2;
     private static final int HIGHER_BOUND = 100;
 
-    public static void prepare() {
-        Engine.setQuestion(QUESTION);
+    public static void play() {
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
             tasks[i] = String.valueOf(Utils.getRandomNumber(LOWER_BOUND, HIGHER_BOUND));
         }
-        Engine.setTasks(tasks);
         String[] answers = new String[tasks.length];
         for (int i = 0; i < answers.length; i++) {
             answers[i] = checkPrime(Integer.parseInt(tasks[i]));
         }
-        Engine.setRightAnswers(answers);
+        Engine.run(new String[][] {QUESTION, tasks, answers});
     }
 
     private static String checkPrime(int number) {
