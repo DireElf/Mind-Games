@@ -6,14 +6,14 @@ import hexlet.code.Utils;
 
 public class Prime {
     public static final String QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final int RANGE_LIMIT = 100;
-    private static final int RANGE_START = 2;
+    private static final int LOWER_BOUND = 2;
+    private static final int HIGHER_BOUND = 100;
 
     public static void prepare() {
         Engine.setQuestion(QUESTION);
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
-            tasks[i] = String.valueOf(Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START);
+            tasks[i] = String.valueOf(Utils.getRandomNumber(LOWER_BOUND, HIGHER_BOUND));
         }
         Engine.setTasks(tasks);
         String[] answers = new String[tasks.length];
@@ -24,8 +24,8 @@ public class Prime {
     }
 
     private static String checkPrime(int number) {
-        if (number != RANGE_START) {
-            for (int j = RANGE_START + 1; j < number; j++) {
+        if (number != LOWER_BOUND) {
+            for (int j = LOWER_BOUND + 1; j < number; j++) {
                 if (number % j == 0) {
                     return "no";
                 }

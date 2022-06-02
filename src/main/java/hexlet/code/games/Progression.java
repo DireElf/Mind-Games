@@ -9,6 +9,7 @@ public class Progression {
     private static final int PROGRESSION_DIMENSION = 100;
     private static final int PROGRESSION_SIZE = 10;
     private static final int STEP_DIMENSION = 10;
+    private static final int LOWER_BOUND = 0;
     private static int[] shadowAnswers;
 
     public static void prepare() {
@@ -17,11 +18,11 @@ public class Progression {
         shadowAnswers = new int[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
             int[] progressionRow = createProgressionRow(
-                    Utils.getRandomNumber(PROGRESSION_DIMENSION),
-                    Utils.getRandomNumber(STEP_DIMENSION),
+                    Utils.getRandomNumber(LOWER_BOUND, PROGRESSION_DIMENSION),
+                    Utils.getRandomNumber(LOWER_BOUND, STEP_DIMENSION),
                     PROGRESSION_SIZE
             );
-            int answerNumber = Utils.getRandomNumber(PROGRESSION_SIZE);
+            int answerNumber = Utils.getRandomNumber(LOWER_BOUND, PROGRESSION_SIZE);
             shadowAnswers[i] = progressionRow[answerNumber];
             StringBuilder sb = new StringBuilder();
             for (int k = 0; k < answerNumber; k++) {

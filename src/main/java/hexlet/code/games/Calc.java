@@ -6,16 +6,17 @@ import hexlet.code.Utils;
 
 public class Calc {
     private static final String QUESTION = "What is the result of the expression?";
-    private static final int RANGE_LIMIT = 10;
+    private static final int LOWER_BOUND = 1;
+    private static final int HIGHER_BOUND = 100;
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     public static void prepare() {
         Engine.setQuestion(QUESTION);
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
-            int firstNumber = Utils.getRandomNumber(RANGE_LIMIT);
-            int secondNumber = Utils.getRandomNumber(RANGE_LIMIT);
-            char operator = OPERATORS[Utils.getRandomNumber(OPERATORS.length)];
+            int firstNumber = Utils.getRandomNumber(LOWER_BOUND, HIGHER_BOUND);
+            int secondNumber = Utils.getRandomNumber(LOWER_BOUND, HIGHER_BOUND);
+            char operator = OPERATORS[Utils.getRandomNumber(LOWER_BOUND, OPERATORS.length)];
             tasks[i] = firstNumber + " " + operator + " " + secondNumber;
         }
         Engine.setTasks(tasks);

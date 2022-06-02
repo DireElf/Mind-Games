@@ -6,15 +6,15 @@ import hexlet.code.Utils;
 
 public class GCD {
     public static final String QUESTION = "Find the greatest common divisor of given numbers.";
-    private static final int RANGE_LIMIT = 100;
-    private static final int RANGE_START = 1;
+    private static final int LOWER_BOUND = 1;
+    private static final int HIGHER_BOUND = 100;
 
     public static void prepare() {
         Engine.setQuestion(QUESTION);
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
-            int firstNumber = Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START;
-            int secondNumber = Utils.getRandomNumber(RANGE_LIMIT) + RANGE_START;
+            int firstNumber = Utils.getRandomNumber(LOWER_BOUND, HIGHER_BOUND);
+            int secondNumber = Utils.getRandomNumber(LOWER_BOUND, HIGHER_BOUND);
             tasks[i] = firstNumber + " " + secondNumber;
         }
         Engine.setTasks(tasks);
