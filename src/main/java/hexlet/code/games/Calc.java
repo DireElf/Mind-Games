@@ -36,7 +36,7 @@ public class Calc {
             case "+":
                 return String.valueOf(arg1 + arg2);
             default:
-                throw new RuntimeException("Unknown operator");
+                throw new RuntimeException("Unknown operator: " + operator);
         }
     }
 }

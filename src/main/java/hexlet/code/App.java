@@ -47,7 +47,7 @@ class App {
                 Engine.play();
                 break;
             default:
-                throw new RuntimeException("Wrong input");
+                throw new RuntimeException("Wrong input: " + userChoice);
         }
         scanner.close();
     }
