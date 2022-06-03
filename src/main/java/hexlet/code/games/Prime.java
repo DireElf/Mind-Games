@@ -16,19 +16,20 @@ public class Prime {
         }
         String[] answers = new String[tasks.length];
         for (int i = 0; i < answers.length; i++) {
-            answers[i] = checkPrime(Integer.parseInt(tasks[i]));
+            answers[i] = isPrime(Integer.parseInt(tasks[i])) ? "yes" : "no";
         }
         Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
 
-    private static String checkPrime(int number) {
+    private static boolean isPrime(int number) {
+        boolean result = true;
         if (number != LOWER_BOUND) {
             for (int j = LOWER_BOUND + 1; j < number; j++) {
                 if (number % j == 0) {
-                    return "no";
+                    return false;
                 }
             }
         }
-        return "yes";
+        return result;
     }
 }
