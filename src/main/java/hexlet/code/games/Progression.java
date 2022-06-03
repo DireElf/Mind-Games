@@ -13,7 +13,7 @@ public class Progression {
 
     public static void play() {
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
-        int[] shadowAnswers = new int[Engine.ROUNDS_NUMBER];
+        int[] hiddenAnswers = new int[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
             int[] progressionRow = createProgressionRow(
                     Utils.getRandomNumber(LOWER_BOUND, PROGRESSION_DIMENSION),
@@ -21,22 +21,21 @@ public class Progression {
                     PROGRESSION_SIZE
             );
             int answerNumber = Utils.getRandomNumber(LOWER_BOUND, PROGRESSION_SIZE);
-            shadowAnswers[i] = progressionRow[answerNumber];
+            hiddenAnswers[i] = progressionRow[answerNumber];
             StringBuilder sb = new StringBuilder();
-            for (int k = 0; k < answerNumber; k++) {
-                sb.append(progressionRow[k]);
-                sb.append(" ");
-            }
-            sb.append(".. ");
-            for (int m = answerNumber + 1; m < progressionRow.length; m++) {
-                sb.append(progressionRow[m]);
+            for (int j = 0; j < progressionRow.length; j++) {
+                if (j == answerNumber) {
+                    sb.append("..");
+                } else {
+                    sb.append(progressionRow[j]);
+                }
                 sb.append(" ");
             }
             tasks[i] = sb.toString();
         }
         String[] answers = new String[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < answers.length; i++) {
-            answers[i] = String.valueOf(shadowAnswers[i]);
+            answers[i] = String.valueOf(hiddenAnswers[i]);
         }
         Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
