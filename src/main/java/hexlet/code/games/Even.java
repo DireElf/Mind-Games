@@ -16,17 +16,17 @@ public class Even {
         }
         String[] answers = new String[tasks.length];
         for (int i = 0; i < answers.length; i++) {
-            answers[i] = checkParity(Integer.parseInt(tasks[i]));
+            answers[i] = isEven(Integer.parseInt(tasks[i])) ? "yes" : "no";
         }
         Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
 
-    private static String checkParity(int number) {
+    private static boolean isEven(int number) {
+        boolean result = false;
         if (number % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
+            return true;
         }
+        return result;
     }
 }
 
