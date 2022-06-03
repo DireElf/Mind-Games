@@ -24,7 +24,7 @@ public class Prime {
     private static boolean isPrime(int number) {
         boolean result = true;
         if (number >= LOWER_BOUND) {
-            for (int j = LOWER_BOUND; j < Math.sqrt(number); j++) {
+            for (int j = LOWER_BOUND; j <= Math.sqrt(number); j++) {
                 if (number % j == 0) {
                     return false;
                 }
