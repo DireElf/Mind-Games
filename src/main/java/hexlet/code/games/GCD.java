@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GCD {
-    public static final String[] QUESTION = {"Find the greatest common divisor of given numbers."};
+    public static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
     private static final int LOWER_BOUND = 1;
     private static final int HIGHER_BOUND = 100;
 
@@ -23,7 +23,7 @@ public class GCD {
             int b = Integer.parseInt(task[1]);
             answers[i] = String.valueOf(findGCD(a, b));
         }
-        Engine.run(new String[][] {QUESTION, tasks, answers});
+        Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
 
     private static int findGCD(int a, int b) {

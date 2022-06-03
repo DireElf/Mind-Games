@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    public static final String[] QUESTION = {"What number is missing in the progression?"};
+    public static final String DESCRIPTION = "What number is missing in the progression?";
     private static final int PROGRESSION_DIMENSION = 100;
     private static final int PROGRESSION_SIZE = 10;
     private static final int STEP_DIMENSION = 10;
@@ -38,7 +38,7 @@ public class Progression {
         for (int i = 0; i < answers.length; i++) {
             answers[i] = String.valueOf(shadowAnswers[i]);
         }
-        Engine.run(new String[][] {QUESTION, tasks, answers});
+        Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
 
     private static int[] createProgressionRow(int start, int step, int length) {

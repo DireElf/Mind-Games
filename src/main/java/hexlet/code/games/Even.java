@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Even {
-    public static final String[] QUESTION = {"Answer 'yes' if the number is even, otherwise answer 'no'."};
+    public static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int LOWER_BOUND = 1;
     private static final int HIGHER_BOUND = 100;
 
@@ -18,7 +18,7 @@ public class Even {
         for (int i = 0; i < answers.length; i++) {
             answers[i] = checkParity(Integer.parseInt(tasks[i]));
         }
-        Engine.run(new String[][] {QUESTION, tasks, answers});
+        Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
 
     private static String checkParity(int number) {
