@@ -13,6 +13,7 @@ public class Progression {
 
     public static void play() {
         String[] tasks = new String[Engine.ROUNDS_NUMBER];
+        String[] answers = new String[Engine.ROUNDS_NUMBER];
         int[] hiddenAnswers = new int[Engine.ROUNDS_NUMBER];
         for (int i = 0; i < tasks.length; i++) {
             int[] progressionRow = createProgressionRow(
@@ -22,6 +23,7 @@ public class Progression {
             );
             int answerNumber = Utils.getRandomNumber(LOWER_BOUND, PROGRESSION_SIZE);
             hiddenAnswers[i] = progressionRow[answerNumber];
+            answers[i] = String.valueOf(hiddenAnswers[i]);
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < progressionRow.length; j++) {
                 if (j == answerNumber) {
@@ -32,10 +34,6 @@ public class Progression {
                 sb.append(" ");
             }
             tasks[i] = sb.toString();
-        }
-        String[] answers = new String[Engine.ROUNDS_NUMBER];
-        for (int i = 0; i < answers.length; i++) {
-            answers[i] = String.valueOf(hiddenAnswers[i]);
         }
         Engine.run(DESCRIPTION, new String[][] {tasks, answers});
     }
